@@ -1,0 +1,4 @@
+E:\MyWork\VSProjects\dotnet-mybatis-demo\dotnet-mybatis-demo\domain\bin\Debug\domain.dll
+E:\MyWork\VSProjects\dotnet-mybatis-demo\dotnet-mybatis-demo\domain\bin\Debug\domain.pdb
+E:\MyWork\VSProjects\dotnet-mybatis-demo\dotnet-mybatis-demo\domain\obj\Debug\domain.dll
+E:\MyWork\VSProjects\dotnet-mybatis-demo\dotnet-mybatis-demo\domain\obj\Debug\domain.pdb

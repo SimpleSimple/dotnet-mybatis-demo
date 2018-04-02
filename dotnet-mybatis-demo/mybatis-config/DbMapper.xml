@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sqlMap namespace="TextInfo" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  
+  <!--<alias>
+    <typeAlias alias="Product" type="SportsStore.Domain.Entities.Product,SportsStore.Domain"></typeAlias>
+  </alias>-->
+
+  <resultMaps>
+    <!--<resultMap id="Product-Result" class="Product">
+      <result property="ProductID" column="ProductID"/>
+      <result property="Name" column="Name"/>
+      <result property="Description" column="Description"/>
+      <result property="Category" column="Category"/>
+      <result property="Price" column="Price" nullValue="0.00"/>--><!--如果Price为null，查询出来是0.00.你可能已经注意到了在我们定义的Product.cs里面
+      并没有将Price定义为Decimal?类型。DataMapper会自动处理，方便吧，呵呵！--><!--
+    </resultMap>-->
+
+    <resultMap id="resultMap" class="domain.TextInfo">
+      <result property="Id" column="id"/>
+      <result property="Title" column="title"/>
+      <result property="Content" column="content"/>
+      <result property="Author" column="author"/>
+      <result property="Create_time" column="create_time"/>
+    </resultMap>
+  </resultMaps>
+  
+  <!--<parameterMap id="getTextList-param" class="domain.TextInfo">
+     <parameter property="start"/>
+     <parameter property="page_size"/>
+  </parameterMap>-->
+
+  <statements>
+    <!--<select id="getTextList" resultMap="resultMap" parameterClass="domain.TextInfo">-->
+    <select id="getTextList" resultMap="resultMap">
+      select * from duanzi order by id limit $start$,$page_size$
+    </select>
+
+    <!--<select id="Product-Select" parameterClass="Product" resultMap="Product-Result">
+      select * from products
+    </select>
+    --><!--后面的可以先不用管，现在只用到了查询--><!--
+    <insert id="Product-Insert" parameterClass="Product">
+      insert into products(Name,Description,Category,Price) values
+      (
+      #Name#,#Description#,#Category#,#Price#
+      )
+      <selectKey resultClass="int" property="ProductID" type="post">
+        select @@IDENTITY
+      </selectKey>
+    </insert>
+
+    <update id="Product-Update" parameterClass="Product">
+      update Product set Name=##,Description=##,Category=##,Price=##
+      where
+      ProductID=#ProductID#
+    </update>
+
+    <delete id="Product-Delete" parameterClass="Product">
+      delete from products where ProductID=#ProductID#
+    </delete>-->
+  </statements>
+
+</sqlMap>
